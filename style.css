@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  --primary-color: #5356ff;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  min-width: 100vw;
+}
+
+/* Container */
+.container {
+  margin: 4rem auto 7rem;
+  text-align: center;
+}
+
+.heading {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.description {
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+}
+
+.input {
+  font-size: 0.8rem;
+  outline: #fff;
+  padding: 0.6rem 1rem;
+  margin: 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 258px;
+}
+/* #cash-given{
+visibility: hidden;
+} */
+
+#check-button {
+  background: var(--primary-color);
+  border: none;
+  color: #fff;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  font-size: large;
+  cursor: pointer;
+  outline: #fff;
+  margin: auto;
+  display: block;
+}
+
+#error-message {
+  display: block;
+  font-size: larger;
+  margin: 1rem 0 0;
+}
+
+/* Table */
+.change-table {
+  width: 50%;
+  text-align: justify;
+  border-collapse: collapse;
+  margin: auto;
+}
+
+.change-table caption {
+  margin: 1rem auto;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+th,
+td {
+  border: 1px solid var(--primary-color);
+  width: 0%;
+  border-collapse: collapse;
+  padding: 0.4rem;
+}
+
