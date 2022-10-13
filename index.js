@@ -8,8 +8,8 @@ const Notes = [2000, 500, 100, 20, 10, 5, 1];
 let arr= new Map()
 checkButton.addEventListener("click", function validateBillAndCashAmount() {
   hideMessage();
-  if (billAmount.value > 0) {
-    if (cashGiven.value >= billAmount.value) {
+  if (billAmount.value > 0 && cashGiven.value > 0  ) {
+    if (Number(cashGiven.value) > Number(billAmount.value)) {
       const amountToBeReturned = cashGiven.value - billAmount.value; // 2022 - 12 = 2010
       calculateChange(amountToBeReturned);
     } else {
