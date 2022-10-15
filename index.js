@@ -1,63 +1,61 @@
-let btnPrimary = document.getElementById("check-button");
-let billAmount = document.getElementById("bill-amount");
-let cashGiven = document.getElementById("cash-given");
-let message = document.getElementById("error-message");
-let noOfNotes = document.querySelectorAll(".no-of-notes");
-let table = document.getElementById("table");
-let availableNotes = ["2000", "500", "200", "100", "50", "20", "10", "1"];
+let btnClicked=document.querySelector('#check-btn');
+let paidAmt=document.querySelector('#cash-given');
+let billAmt=document.querySelector('#bill-amount');
+let noOfNotes=document.querySelectorAll('#num-notes');
+let displayMessage=document.querySelector('#message');
 
-btnPrimary.addEventListener("click", () => {
-  let newBillAmount = Number(billAmount.value);
-  let newCashGiven = Number(cashGiven.value);
-  hideMessage();
-  if (newBillAmount > 0) {
-    if (newCashGiven > newBillAmount) {
-      showTable(table);
-      let amountToBeReturned = newCashGiven - newBillAmount;
-      calculateChange(amountToBeReturned);
-      showMessage("Thanks! Come back again😊");
-    } else if (
-      newBillAmount > newCashGiven &&
-      newCashGiven != "" &&
-      newCashGiven > 0
-    ) {
-      showMessage("Do you want to wash plates ?🧼🍽️");
-      hideTable(table);
-    } else if (newCashGiven < 0) {
-      hideMessage();
-      hideTable(table);
-      showMessage(" I need Actual Cash Man😒");
-    } else if (newCashGiven === newBillAmount) {
-      hideTable(table);
-      showMessage("Thanks! Come back again😊");
-    } else {
-      hideMessage();
-      hideTable(table);
-      showMessage("Gimme Cash 🖐️💸");
+let availableNotes=[2000,500,100,20,10,5,1];
+
+btnClicked.addEventListener('click',function clickHandler(){
+    clearTable();
+    if(billAmt.value>0){
+        if(paidAmt.value-billAmt.value>=0){
+            hideMessage();
+            let change=paidAmt.value-billAmt.value;
+            calculateChange(change);
+        }
+        else {
+            showMessage("Do you want to wash plates?");
+        }
+    } else{
+        showMessage("Invalid Amount");
     }
-  } else {
-    showMessage("Invalid Bill Amount❌");
-    hideTable(table);
-  }
+    
+
 });
 
-function hideMessage() {
-  message.style.display = "none";
+function calculateChange(change){
+    let numberOfNotes=0;
+    for(let i=0;i<availableNotes.length;i++){
+
+        noOfNotes[i].style.opacity=1;
+
+        if(change>=availableNotes[i]){   
+            numberOfNotes=Math.trunc(change/availableNotes[i]);
+            noOfNotes[i].innerText=numberOfNotes;
+        }
+        else{
+            noOfNotes[i].innerText='0';
+        }
+
+        change=change%availableNotes[i];
+
+    }
+    
 }
-function hideTable(table) {
-  table.style.display = "none";
+
+function clearTable(){
+    for(let i=0;i<availableNotes.length;i++){
+        noOfNotes[i].style.opacity=0;
+    }
+    
 }
-function showTable(table) {
-  table.style.display = "flex";
+
+function showMessage(message){
+    displayMessage.innerText=message;
+    displayMessage.style.display="block";
 }
-function showMessage(msg) {
-  message.style.display = "block";
-  message.innerText = msg;
-}
-function calculateChange(amountToBeReturned) {
-  for (let i = 0; i < availableNotes.length; i++) {
-    let numberOfNotes = Math.trunc(amountToBeReturned / availableNotes[i]);
-    amountToBeReturned %= availableNotes[i];
-    noOfNotes[i].innerText = numberOfNotes;
-  }
+
+function hideMessage(){
+    displayMessage.style.display="none"; 
 }

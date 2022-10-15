@@ -1,40 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cash Register Manager</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <main class="container">
-      <div>
-        <h1 class="heading">Cash Register Manager</h1>
-        <p class="description">
-          Enter the bill amount and cash given by the customer and know minimum
-          number of notes to return.
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash-register</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/305d9484fd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1 class="heading">
+        Cash Register Manager
+    </h1>
+    <p class="sub-heading">Enter the bill amount and cash given by the customer and know minimum number of notes to return.</p>
+    <div>
+        <div>
+            <label for="bill-amount">Bill Amount:</label>
+        </div>
+        <p>
+            <input id="bill-amount">
         </p>
-        <label  for="bill-amount">Bill Amount:</label>
-        <input class="input" id="bill-amount" type="text" />
-        <label  for="cash-given">Cash Given:</label>
-        <input class="input" id="cash-given" type="text" />
-        <button id="check-button">Check</button>
-        <p id="error-message"></p>
-        <table class="change-table" id="table">
-          <caption>
-            Return Change
-          </caption>
-          <tr>
-            <th>No of Notes</th>
-            <td class="no-of-notes"></td>
-            <td class="no-of-notes"></td>
-            <td class="no-of-notes"></td>
-            <td class="no-of-notes"></td>
-            <td class="no-of-notes"></td>
-            <td class="no-of-notes"></td>
-            <td class="no-of-notes"></td>
-          </tr>
-          <tr>
+        <div>
+            <label for="cash-given">Cash Given:</label>
+        </div>
+        <p>
+            <input id="cash-given">
+        </p>
+        <button id="check-btn">Check</button>
+        <p id="message"></p>
+        <h2>Return Change</h2>
+<div class="calculate">
+    <table>
+        <tr>
+            <th>No. of Notes</th>
+            <td id="num-notes"></td>
+            <td id="num-notes"></td>
+            <td id="num-notes"></td>
+            <td id="num-notes"></td>
+            <td id="num-notes"></td>
+            <td id="num-notes"></td>
+            <td id="num-notes"></td>
+        </tr>
+        <tr>
             <th>Note</th>
             <td>2000</td>
             <td>500</td>
@@ -43,13 +50,11 @@
             <td>10</td>
             <td>5</td>
             <td>1</td>
-          </tr>
-        </table>
-      </div>
-
-      
-    </main>
-
-    <script src="index.js" type="text/javascript"></script>
-  </body>
+        </tr>
+    </table>
+</div>
+       
+    </div>
+    <script src="index.js"></script>
+</body>
 </html>
